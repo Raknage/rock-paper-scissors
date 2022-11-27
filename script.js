@@ -1,1 +1,1 @@
-console.log("Hello")
+let cpuChoice = () => Math.floor(Math.random() * 3);
