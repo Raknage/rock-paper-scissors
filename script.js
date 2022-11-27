@@ -20,12 +20,12 @@ function getPlayerChoice() {
   return playerChoice.trim();
 }
 
-function playRound(cpuChoice = "Rock", playerChoice = "paper") {
+function playRound(cpuChoice, playerChoice) {
   const cpu = cpuChoice.toLowerCase();
   const player = playerChoice.toLowerCase();
 
   if (cpu === player) {
-    return null;
+    return "tie";
   }
 
   switch (cpu) {
@@ -66,14 +66,14 @@ function game(rounds = 5) {
 
     playerWon = playRound(cpuChoice, playerChoice);
 
-    if (playerWon) {
+    if (playerWon === "tie") {
+      console.log(`Tie! ${cpuChoice} vs ${playerChoice}`);
+    } else if (playerWon) {
       playerScore++;
       console.log(`You won! ${playerChoice} beats ${cpuChoice}`);
     } else if (!playerWon) {
       cpuScore++;
       console.log(`You lose! ${cpuChoice} beats ${playerChoice}`);
-    } else {
-      console.log("Tie!");
     }
   }
 
