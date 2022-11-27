@@ -11,12 +11,11 @@ function getCpuChoice() {
     case 2:
       cpuChoice = "Scissors";
       break;
-    default:
-      break;
   }
   return cpuChoice;
 }
 
 function getPlayerChoice() {
-  prompt("Rock, paper or scissors?", 1);
+  let playerChoice = prompt("Rock, paper or scissors?", "Rock");
+  return playerChoice.trim();
 }
