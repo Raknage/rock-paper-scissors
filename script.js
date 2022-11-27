@@ -68,10 +68,10 @@ function game(rounds = 5) {
 
     if (playerWon) {
       playerScore++;
-      console.log("You won!");
+      console.log(`You won! ${playerChoice} beats ${cpuChoice}`);
     } else if (!playerWon) {
       cpuScore++;
-      console.log("You lose!");
+      console.log(`You lose! ${cpuChoice} beats ${playerChoice}`);
     } else {
       console.log("Tie!");
     }
@@ -81,10 +81,10 @@ function game(rounds = 5) {
   if (playerScore > cpuScore) {
     console.log("You won the game");
   } else if (playerScore < cpuScore) {
-    console.log("You lose!");
+    console.log("You lose the game!");
   } else {
     console.log("It's a tie!");
   }
 }
 
-game()
+game();
