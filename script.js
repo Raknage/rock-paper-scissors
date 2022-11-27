@@ -20,19 +20,37 @@ function getPlayerChoice() {
   return playerChoice.trim();
 }
 
-function playRound(cpuChoice = "Rock", playerChoice = "rock") {
+function playRound(cpuChoice = "Rock", playerChoice = "paper") {
   const cpu = cpuChoice.toLowerCase();
   const player = playerChoice.toLowerCase();
+
   if (cpu === player) {
     return `Tie! Both played ${cpuChoice}.`;
   }
-  switch (cpuChoice) {
-    case "Rock":
-      if (playerChoice) {
+
+  switch (cpu) {
+    case "rock":
+      if (player === "paper") {
+        return `You win! ${playerChoice} beats ${cpuChoice}`;
+      } else if (player === "scissors") {
+        return `You lose! ${cpuChoice} beats ${playerChoice}`;
       }
       break;
 
-    default:
+    case "paper":
+      if (player === "scissors") {
+        return `You win! ${playerChoice} beats ${cpuChoice}`;
+      } else if (player === "rock") {
+        return `You lose! ${cpuChoice} beats ${playerChoice}`;
+      }
+      break;
+
+    case "scissors":
+      if (player === "rock") {
+        return `You win! ${playerChoice} beats ${cpuChoice}`;
+      } else if (player === "paper") {
+        return `You lose! ${cpuChoice} beats ${playerChoice}`;
+      }
       break;
   }
 }
