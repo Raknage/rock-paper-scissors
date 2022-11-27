@@ -25,34 +25,66 @@ function playRound(cpuChoice = "Rock", playerChoice = "paper") {
   const player = playerChoice.toLowerCase();
 
   if (cpu === player) {
-    return `Tie! Both played ${cpuChoice}.`;
+    return null;
   }
 
   switch (cpu) {
     case "rock":
       if (player === "paper") {
-        return `You win! ${playerChoice} beats ${cpuChoice}`;
+        return true;
       } else if (player === "scissors") {
-        return `You lose! ${cpuChoice} beats ${playerChoice}`;
+        return false;
       }
       break;
 
     case "paper":
       if (player === "scissors") {
-        return `You win! ${playerChoice} beats ${cpuChoice}`;
+        return true;
       } else if (player === "rock") {
-        return `You lose! ${cpuChoice} beats ${playerChoice}`;
+        return false;
       }
       break;
 
     case "scissors":
       if (player === "rock") {
-        return `You win! ${playerChoice} beats ${cpuChoice}`;
+        return true;
       } else if (player === "paper") {
-        return `You lose! ${cpuChoice} beats ${playerChoice}`;
+        return false;
       }
       break;
   }
 }
 
-console.log(playRound());
+function game(rounds = 5) {
+  let cpuScore = 0;
+  let playerScore = 0;
+  let playerWon = null;
+
+  for (let i = 0; i < rounds; i++) {
+    let cpuChoice = getCpuChoice();
+    let playerChoice = getPlayerChoice();
+
+    playerWon = playRound(cpuChoice, playerChoice);
+
+    if (playerWon) {
+      playerScore++;
+      console.log("You won!");
+    } else if (!playerWon) {
+      cpuScore++;
+      console.log("You lose!");
+    } else {
+      console.log("Tie!");
+    }
+  }
+
+  console.log(`Final score: ${playerScore} - ${cpuScore}`);
+  if (playerScore > cpuScore) {
+    console.log("You won the game");
+  } else if (playerScore < cpuScore) {
+    console.log("You lose!");
+  } else {
+    console.log("It's a tie!");
+  }
+}
+
+game()
