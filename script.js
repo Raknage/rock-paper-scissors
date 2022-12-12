@@ -55,7 +55,7 @@ function playRound(cpuChoice, playerChoice) {
   }
 }
 
-function game(rounds = 5) {
+/* function game(rounds = 5) {
   let cpuScore = 0;
   let playerScore = 0;
   let playerWon = null;
@@ -88,3 +88,4 @@ function game(rounds = 5) {
 }
 
 game();
+ */
