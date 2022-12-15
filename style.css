@@ -1,3 +1,27 @@
 * {
   background-color: #333;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  border: 0ch;
+}
+
+button:hover {
+  transition-duration: 0.2s;
+  transform: scale(1.05);
+}
+
+button {
+  padding: 20px 50px;
+  flex: 0 1 auto;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
 }
