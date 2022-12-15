@@ -1,11 +1,11 @@
 * {
-  background-color: #333;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 body {
+  background-color: #333;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -13,8 +13,20 @@ body {
   overflow: hidden;
 }
 
+header {
+  padding: 20px;
+  font-size: 2rem;
+  font-weight: 900;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  text-transform: capitalize;
+  background-color: #b30f0f3a;
+  box-shadow: 0px 0px 10px 5px #000;
+  margin-bottom: 100px;
+}
+
 button {
   border: 0ch;
+  background: transparent;
 }
 
 button:hover {
