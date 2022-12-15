@@ -5,6 +5,14 @@
   padding: 0;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  overflow: hidden;
+}
+
 button {
   border: 0ch;
 }
