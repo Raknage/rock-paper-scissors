@@ -65,3 +65,13 @@ img {
 .margin {
   margin: 50px;
 }
+
+.gap {
+  gap: 100px;
+}
+
+.score {
+  text-align: center;
+  font-size: 2rem;
+  margin: 20px;
+}
