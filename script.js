@@ -15,13 +15,8 @@ function getCpuChoice() {
   return cpuChoice;
 }
 
-function getPlayerChoice() {
-  let playerChoice = prompt("Rock, paper or scissors?", "Rock");
-  return playerChoice.trim();
-}
-
-function playRound(cpuChoice, playerChoice) {
-  const cpu = cpuChoice.toLowerCase();
+function playRound(playerChoice) {
+  const cpu = getCpuChoice().toLowerCase();
   const player = playerChoice.toLowerCase();
 
   if (cpu === player) {
@@ -60,9 +55,9 @@ const buttons = document.querySelectorAll("button");
 buttons.forEach((e) => {
   e.addEventListener("click", (e) => {
     console.log(e.currentTarget.id);
+    playRound(e.currentTarget.id);
   });
 });
-
 
 /* function game(rounds = 5) {
   let cpuScore = 0;
