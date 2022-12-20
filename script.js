@@ -55,6 +55,15 @@ function playRound(cpuChoice, playerChoice) {
   }
 }
 
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach((e) => {
+  e.addEventListener("click", (e) => {
+    console.log(e.currentTarget.id);
+  });
+});
+
+
 /* function game(rounds = 5) {
   let cpuScore = 0;
   let playerScore = 0;
