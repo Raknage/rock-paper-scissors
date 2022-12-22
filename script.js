@@ -70,9 +70,11 @@ function playRound(playerChoice) {
   } else if (playerWon) {
     playerScore++;
     resultField.innerHTML = `You won! ${player} beats ${cpu}`;
+    document.getElementById("playerscore").innerHTML = playerScore;
   } else if (!playerWon) {
     cpuScore++;
     resultField.innerHTML = `You lose! ${cpu} beats ${player}`;
+    document.getElementById("cpuscore").innerHTML = cpuScore;
   }
 
   if (playerScore == endScore || cpuScore == endScore) {
