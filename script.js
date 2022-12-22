@@ -1,6 +1,7 @@
 let cpuScore = 0;
 let playerScore = 0;
 let playerWon = null;
+const endScore = 3;
 
 function getCpuChoice() {
   let cpuChoice = null;
@@ -24,7 +25,7 @@ function playRound(playerChoice) {
   const player = playerChoice.toLowerCase();
 
   if (cpu === player) {
-    return "tie";
+    playerWon = "tie";
   }
 
   switch (cpu) {
@@ -52,6 +53,27 @@ function playRound(playerChoice) {
       }
       break;
   }
+
+  if (playerWon === "tie") {
+    console.log(`Tie! ${cpu} vs ${player}`);
+  } else if (playerWon) {
+    playerScore++;
+    console.log(`You won! ${player} beats ${cpu}`);
+  } else if (!playerWon) {
+    cpuScore++;
+    console.log(`You lose! ${cpu} beats ${player}`);
+  }
+
+  if (playerScore == endScore || cpuScore == endScore) {
+    console.log(`Final score: ${playerScore} - ${cpuScore}`);
+    if (playerScore > cpuScore) {
+      console.log("You won the game");
+    } else if (playerScore < cpuScore) {
+      console.log("You lose the game!");
+    } else {
+      console.log("It's a tie!");
+    }
+  }
 }
 
 const buttons = document.querySelectorAll("button");
@@ -62,34 +84,3 @@ buttons.forEach((e) => {
     playRound(e.currentTarget.id);
   });
 });
-
-/* function game(rounds = 5) {
-  for (let i = 0; i < rounds; i++) {
-    let cpuChoice = getCpuChoice();
-    let playerChoice = getPlayerChoice();
-
-    playerWon = playRound(cpuChoice, playerChoice);
-
-    if (playerWon === "tie") {
-      console.log(`Tie! ${cpuChoice} vs ${playerChoice}`);
-    } else if (playerWon) {
-      playerScore++;
-      console.log(`You won! ${playerChoice} beats ${cpuChoice}`);
-    } else if (!playerWon) {
-      cpuScore++;
-      console.log(`You lose! ${cpuChoice} beats ${playerChoice}`);
-    }
-  }
-
-  console.log(`Final score: ${playerScore} - ${cpuScore}`);
-  if (playerScore > cpuScore) {
-    console.log("You won the game");
-  } else if (playerScore < cpuScore) {
-    console.log("You lose the game!");
-  } else {
-    console.log("It's a tie!");
-  }
-}
-
-game();
- */
