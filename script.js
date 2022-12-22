@@ -6,7 +6,8 @@ const buttons = document.querySelectorAll("button");
 const resultField = document.getElementById("result");
 const content = document.querySelector(".content");
 
-function main() {
+function init() {
+  content.hidden = false;
   buttons.forEach((e) => {
     e.addEventListener("click", (e) => {
       console.log(e.currentTarget.id);
@@ -79,7 +80,7 @@ function playRound(playerChoice) {
   }
 
   if (playerScore == endScore || cpuScore == endScore) {
-    content.style.display = "none";
+    content.hidden = true;
     console.log(`Final score: ${playerScore} - ${cpuScore}`);
     if (playerScore > cpuScore) {
       console.log("You won the game");
@@ -91,4 +92,4 @@ function playRound(playerChoice) {
   }
 }
 
-main();
+init();
