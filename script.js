@@ -3,6 +3,7 @@ let playerScore = 0;
 let playerWon = null;
 const endScore = 1;
 const buttons = document.querySelectorAll("button");
+const resultField = document.getElementById("result");
 
 function main() {
   buttons.forEach((e) => {
@@ -65,23 +66,16 @@ function playRound(playerChoice) {
   }
 
   if (playerWon === "tie") {
-    console.log(`Tie! ${cpu} vs ${player}`);
+    resultField.innerHTML = `Tie! ${cpu} vs ${player}`;
   } else if (playerWon) {
     playerScore++;
-    console.log(`You won! ${player} beats ${cpu}`);
+    resultField.innerHTML = `You won! ${player} beats ${cpu}`;
   } else if (!playerWon) {
     cpuScore++;
-    console.log(`You lose! ${cpu} beats ${player}`);
+    resultField.innerHTML = `You lose! ${cpu} beats ${player}`;
   }
 
   if (playerScore == endScore || cpuScore == endScore) {
-    buttons.forEach((e) => {
-      e.removeEventListener("click", (e) => {
-        console.log(e.currentTarget.id);
-        playRound(e.currentTarget.id);
-      });
-    });
-
     console.log(`Final score: ${playerScore} - ${cpuScore}`);
     if (playerScore > cpuScore) {
       console.log("You won the game");
