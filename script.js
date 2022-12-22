@@ -4,6 +4,7 @@ let playerWon = null;
 const endScore = 1;
 const buttons = document.querySelectorAll("button");
 const resultField = document.getElementById("result");
+const content = document.querySelector(".content");
 
 function main() {
   buttons.forEach((e) => {
@@ -78,6 +79,7 @@ function playRound(playerChoice) {
   }
 
   if (playerScore == endScore || cpuScore == endScore) {
+    content.style.display = "none";
     console.log(`Final score: ${playerScore} - ${cpuScore}`);
     if (playerScore > cpuScore) {
       console.log("You won the game");
