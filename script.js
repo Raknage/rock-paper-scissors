@@ -1,3 +1,7 @@
+let cpuScore = 0;
+let playerScore = 0;
+let playerWon = null;
+
 function getCpuChoice() {
   let cpuChoice = null;
   let x = Math.floor(Math.random() * 3);
@@ -26,25 +30,25 @@ function playRound(playerChoice) {
   switch (cpu) {
     case "rock":
       if (player === "paper") {
-        return true;
+        playerWon = true;
       } else if (player === "scissors") {
-        return false;
+        playerWon = false;
       }
       break;
 
     case "paper":
       if (player === "scissors") {
-        return true;
+        playerWon = true;
       } else if (player === "rock") {
-        return false;
+        playerWon = false;
       }
       break;
 
     case "scissors":
       if (player === "rock") {
-        return true;
+        playerWon = true;
       } else if (player === "paper") {
-        return false;
+        playerWon = false;
       }
       break;
   }
@@ -60,10 +64,6 @@ buttons.forEach((e) => {
 });
 
 /* function game(rounds = 5) {
-  let cpuScore = 0;
-  let playerScore = 0;
-  let playerWon = null;
-
   for (let i = 0; i < rounds; i++) {
     let cpuChoice = getCpuChoice();
     let playerChoice = getPlayerChoice();
