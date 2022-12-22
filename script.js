@@ -1,7 +1,17 @@
 let cpuScore = 0;
 let playerScore = 0;
 let playerWon = null;
-const endScore = 3;
+const endScore = 1;
+const buttons = document.querySelectorAll("button");
+
+function main() {
+  buttons.forEach((e) => {
+    e.addEventListener("click", (e) => {
+      console.log(e.currentTarget.id);
+      playRound(e.currentTarget.id);
+    });
+  });
+}
 
 function getCpuChoice() {
   let cpuChoice = null;
@@ -65,6 +75,13 @@ function playRound(playerChoice) {
   }
 
   if (playerScore == endScore || cpuScore == endScore) {
+    buttons.forEach((e) => {
+      e.removeEventListener("click", (e) => {
+        console.log(e.currentTarget.id);
+        playRound(e.currentTarget.id);
+      });
+    });
+
     console.log(`Final score: ${playerScore} - ${cpuScore}`);
     if (playerScore > cpuScore) {
       console.log("You won the game");
@@ -76,11 +93,4 @@ function playRound(playerChoice) {
   }
 }
 
-const buttons = document.querySelectorAll("button");
-
-buttons.forEach((e) => {
-  e.addEventListener("click", (e) => {
-    console.log(e.currentTarget.id);
-    playRound(e.currentTarget.id);
-  });
-});
+main();
