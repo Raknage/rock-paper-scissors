@@ -1,19 +1,23 @@
 let cpuScore = 0;
 let playerScore = 0;
 let playerWon = null;
-const endScore = 1;
+const endScore = 5;
 const buttons = document.querySelectorAll("button");
 const resultField = document.getElementById("result");
 const content = document.querySelector(".content");
+const endScreen = document.createElement("h1");
+endScreen.setAttribute("id", "result");
+buttons.forEach((e) => {
+  e.addEventListener("click", (e) => {
+    console.log(e.currentTarget.id);
+    playRound(e.currentTarget.id);
+  });
+});
 
 function init() {
+  playerScore = 0;
+  cpuScore = 0;
   content.hidden = false;
-  buttons.forEach((e) => {
-    e.addEventListener("click", (e) => {
-      console.log(e.currentTarget.id);
-      playRound(e.currentTarget.id);
-    });
-  });
 }
 
 function getCpuChoice() {
@@ -84,11 +88,17 @@ function playRound(playerChoice) {
     console.log(`Final score: ${playerScore} - ${cpuScore}`);
     if (playerScore > cpuScore) {
       console.log("You won the game");
+      endScreen.textContent = "You won the game";
     } else if (playerScore < cpuScore) {
       console.log("You lose the game!");
+      endScreen.textContent = "You lose the game!";
     } else {
       console.log("It's a tie!");
+      endScreen.textContent = "It's a tie!";
     }
+
+    const body = document.getElementsByTagName("body")[0];
+    body.replaceChild(endScreen, content);
   }
 }
 
