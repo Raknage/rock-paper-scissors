@@ -3,6 +3,8 @@ let playerScore = 0;
 let playerWon = null;
 const endScore = 5;
 const buttons = document.querySelectorAll("button");
+const playerPlay = document.querySelector(".player");
+const cpuPlay = document.querySelector(".cpu");
 const resultField = document.getElementById("result");
 const content = document.querySelector(".content");
 const endScreen = document.createElement("h1");
@@ -39,6 +41,8 @@ function getCpuChoice() {
 function playRound(playerChoice) {
   const cpu = getCpuChoice().toLowerCase();
   const player = playerChoice.toLowerCase();
+  playerPlay.innerHTML = `<img src="./images/${player}.svg" height="100" />`;
+  cpuPlay.innerHTML = `<img src="./images/${cpu}.svg" height="100" />`;
 
   if (cpu === player) {
     playerWon = "tie";
