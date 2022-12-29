@@ -70,12 +70,13 @@ img {
   gap: 100px;
 }
 
-.score, #result {
+.score,
+#result {
   text-align: center;
   font-size: 2rem;
   margin: 10px;
 }
 
 .play {
-  padding: 0px ;
+  padding: 0px;
 }
