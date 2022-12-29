@@ -9,7 +9,6 @@ const endScreen = document.createElement("h1");
 endScreen.setAttribute("id", "result");
 buttons.forEach((e) => {
   e.addEventListener("click", (e) => {
-    console.log(e.currentTarget.id);
     playRound(e.currentTarget.id);
   });
 });
@@ -85,15 +84,11 @@ function playRound(playerChoice) {
 
   if (playerScore == endScore || cpuScore == endScore) {
     content.hidden = true;
-    console.log(`Final score: ${playerScore} - ${cpuScore}`);
     if (playerScore > cpuScore) {
-      console.log("You won the game");
       endScreen.textContent = "You won the game";
     } else if (playerScore < cpuScore) {
-      console.log("You lose the game!");
       endScreen.textContent = "You lose the game!";
     } else {
-      console.log("It's a tie!");
       endScreen.textContent = "It's a tie!";
     }
 
